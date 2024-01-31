@@ -1,8 +1,8 @@
-package seatManagementSystem.util;
+package arrayList.seatManagementSystem.util;
 
-import seatManagementSystem.model.Auditorium;
-import seatManagementSystem.model.Seat;
-import seatManagementSystem.model.Status;
+import arrayList.seatManagementSystem.model.Auditorium;
+import arrayList.seatManagementSystem.model.Status;
+import arrayList.seatManagementSystem.model.Seat;
 
 // Define class
 public class ReservationSystem {

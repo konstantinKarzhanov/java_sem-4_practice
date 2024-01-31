@@ -1,9 +1,9 @@
-package seatManagementSystem;
+package arrayList.seatManagementSystem;
 
-import seatManagementSystem.model.Auditorium;
-import seatManagementSystem.model.Seat;
+import arrayList.seatManagementSystem.model.Auditorium;
+import arrayList.seatManagementSystem.model.Seat;
 
-import seatManagementSystem.util.ReservationSystem;
+import arrayList.seatManagementSystem.util.ReservationSystem;
 
 public class SeatManagementSystem {
     public static void main(String[] args) {

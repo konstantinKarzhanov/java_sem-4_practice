@@ -1,4 +1,4 @@
-package seatManagementSystem.model;
+package arrayList.seatManagementSystem.model;
 
 public class Seat {
     private String name;

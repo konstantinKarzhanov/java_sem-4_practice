@@ -1,4 +1,4 @@
-package seatManagementSystem.model;
+package arrayList.seatManagementSystem.model;
 
 import java.util.List;
 import java.util.ArrayList;
