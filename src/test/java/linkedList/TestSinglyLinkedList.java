@@ -1,8 +1,9 @@
 package linkedList;
 
-import linkedList.SinglyLinkedList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 public class TestSinglyLinkedList {
     SinglyLinkedList linkedList;
@@ -71,6 +72,63 @@ public class TestSinglyLinkedList {
                 this.linkedList.head.next.value,
                 this.linkedList.head.next.next.value,
                 this.linkedList.tail.value
+        });
+    }
+
+    @Test
+    public void testDeleteFirst() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        this.linkedList.deleteFirst();
+
+        Assertions.assertEquals(arr.length - 1, this.linkedList.size);
+        Assertions.assertArrayEquals(Arrays.copyOfRange(arr, 1, arr.length), new int[] {
+                this.linkedList.head.value,
+                this.linkedList.head.next.value,
+                this.linkedList.tail.value
+        });
+    }
+
+    @Test
+    public void testDeleteLast() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        this.linkedList.deleteLast();
+
+        Assertions.assertEquals(arr.length - 1, this.linkedList.size);
+        Assertions.assertArrayEquals(Arrays.copyOfRange(arr, 0, arr.length - 1), new int[] {
+                this.linkedList.head.value,
+                this.linkedList.head.next.value,
+                this.linkedList.tail.value
+        });
+    }
+
+    @Test
+    public void testDeleteAtIndex() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        this.linkedList.deleteAtIndex(1);
+
+        Assertions.assertEquals(arr.length - 1, this.linkedList.size);
+        Assertions.assertArrayEquals(new int[] { 1, 3, 4 }, new int[] {
+                this.linkedList.head.value,
+                this.linkedList.head.next.value,
+                this.linkedList.head.next.next.value
         });
     }
 }

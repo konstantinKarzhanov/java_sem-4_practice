@@ -58,23 +58,23 @@ public class SinglyLinkedList {
 
     public SinglyLinkedList insertAtIndex(int value, int index) {
         if (index == 0) {
-            this.insertFirst(value);
+            return this.insertFirst(value);
         } else if (this.size <= index) {
-            this.insertLast(value);
-        } else {
-            Node tempNode = this.head;
-
-            for (int i = 0; i < index - 1; i++) {
-                tempNode = tempNode.next;
-            }
-
-            Node node = new Node(value);
-
-            node.next = tempNode.next;
-            tempNode.next = node;
-
-            this.size++;
+            return this.insertLast(value);
         }
+
+        Node tempNode = this.head;
+
+        for (int i = 0; i < index - 1; i++) {
+            tempNode = tempNode.next;
+        }
+
+        Node node = new Node(value);
+
+        node.next = tempNode.next;
+        tempNode.next = node;
+
+        this.size++;
 
         return this;
     }
@@ -95,5 +95,68 @@ public class SinglyLinkedList {
         }
 
         System.out.println();
+    }
+
+    public boolean deleteFirst() {
+        boolean isDeleted = false;
+
+        if (this.head != null) {
+            Node node = this.head.next;
+            this.head.next = null;
+            this.head = node;
+
+            this.size--;
+
+            isDeleted = true;
+        }
+
+        return isDeleted;
+    }
+
+    public boolean deleteLast() {
+        boolean isDeleted = false;
+
+        if (this.head != null) {
+            Node tempNode = this.head;
+
+            for (int i = 0; i < this.size - 2; i++) {
+                tempNode = tempNode.next;
+            }
+
+            this.tail = tempNode;
+            this.tail.next = null;
+
+            this.size--;
+
+            isDeleted = true;
+        }
+
+        return isDeleted;
+    }
+
+    public boolean deleteAtIndex(int index) {
+        if (index == 0) {
+            return this.deleteFirst();
+        } else if (index >= this.size){
+            return this.deleteLast();
+        }
+
+        boolean isDeleted = false;
+
+        Node tempNode = this.head;
+
+        for (int i = 0; i < index - 1; i++) {
+            tempNode = tempNode.next;
+        }
+
+        Node node = tempNode.next;
+        tempNode.next = node.next;
+        node.next = null;
+
+        this.size--;
+
+        isDeleted = true;
+
+        return isDeleted;
     }
 }
