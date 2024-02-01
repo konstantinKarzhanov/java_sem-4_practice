@@ -159,4 +159,45 @@ public class SinglyLinkedList {
 
         return isDeleted;
     }
+
+    public boolean contains(int value) {
+        boolean isContains = false;
+
+        if (this.head != null) {
+            Node tempNode = this.head;
+
+            for (int i = 0; i < this.size; i++) {
+                if (tempNode.value == value) {
+                    isContains = true;
+
+                    break;
+                }
+
+                tempNode = tempNode.next;
+            }
+        }
+
+
+        return isContains;
+    }
+
+    public int indexOf(int value) {
+        int index = -1;
+
+        if (this.head != null) {
+            Node tempNode = this.head;
+
+            for (int i = 0; i < this.size; i++) {
+                if (tempNode.value == value) {
+                    index = i;
+
+                    break;
+                }
+
+                tempNode = tempNode.next;
+            }
+        }
+
+        return index;
+    }
 }

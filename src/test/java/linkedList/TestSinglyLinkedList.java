@@ -131,4 +131,57 @@ public class TestSinglyLinkedList {
                 this.linkedList.head.next.next.value
         });
     }
+
+
+    @Test
+    public void testContains() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        Assertions.assertEquals(arr.length, this.linkedList.size);
+        Assertions.assertTrue(this.linkedList.contains(1));
+    }
+
+    @Test
+    public void testNotContains() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        Assertions.assertEquals(arr.length, this.linkedList.size);
+        Assertions.assertFalse(this.linkedList.contains(8));
+    }
+
+    @Test
+    public void testIndexOf() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        Assertions.assertEquals(arr.length, this.linkedList.size);
+        Assertions.assertEquals(3, this.linkedList.indexOf(4));
+    }
+
+    @Test
+    public void testIndexOfNotFound() {
+        this.linkedList = new SinglyLinkedList();
+        int[] arr = { 1, 2, 3, 4 };
+
+        for (int element : arr) {
+            this.linkedList.insertLast(element);
+        }
+
+        Assertions.assertEquals(arr.length, this.linkedList.size);
+        Assertions.assertEquals(-1, this.linkedList.indexOf(40));
+    }
 }
